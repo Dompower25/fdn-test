@@ -3,7 +3,8 @@ import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import HeaderBar from "./HeaderBar";
-import PlayCircleTwoToneIcon from "@mui/icons-material/PlayCircleTwoTone";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 const CastomBox = styled("div")(({ theme }) => ({
   width: "100%",
@@ -28,6 +29,11 @@ const ButtonTypeMore = styled("button")(({ theme }) => ({
   border: "none",
   background: "#453939",
   cursor: "pointer",
+}));
+
+const SliderTracker = styled("span")(({ theme }) => ({
+  color: "#575757",
+  fontWeight: "600",
 }));
 
 const MainBlock = () => {
@@ -97,11 +103,22 @@ const MainBlock = () => {
                     width: "100%",
                     height: "293px",
                     backgroundColor: "#6588e0",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
-                  <PlayCircleTwoToneIcon />
+                  <PlayCircleIcon
+                    sx={{
+                      fontSize: "70px",
+                      cursor: "pointer",
+                      color: "#453939",
+                    }}
+                  />
                   <span
                     style={{
+                      margin: "10px",
                       color: "#ffff",
                       fontSize: "14px",
                       fontWeight: "600",
@@ -124,7 +141,8 @@ const MainBlock = () => {
                   top: "0px",
                   width: "100%",
                   minHeight: "879px",
-                  backgroundColor: "black",
+                  background:
+                    "url('https://img.freepik.com/free-photo/aerial-top-view-shot-of-the-hong-kong-cityscape_181624-40074.jpg?w=1060&t=st=1668843875~exp=1668844475~hmac=886e7072bd74896d86195ce28d03bad1bbbad8fafac8d0d67223626c4672f3b4') 0 0/auto 100% no-repeat",
                 }}
               >
                 <Grid container spacing={0} columns={3}>
@@ -134,9 +152,43 @@ const MainBlock = () => {
                       sx={{
                         width: "45.14%",
                         minHeight: "293px",
-                        backgroundColor: "pink",
+                        backgroundColor: "white",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
                       }}
-                    ></Box>
+                    >
+                      <PlayArrowIcon
+                        sx={{
+                          color: "#575757",
+                          fontSize: "40px",
+                          cursor: "pointer",
+                        }}
+                      />
+                      <div style={{ margin: "30px auto" }}>
+                        <SliderTracker sx={{ fontSize: "32px" }}>
+                          01 {/** СЛАЙДЕР */}
+                        </SliderTracker>
+                        <SliderTracker
+                          sx={{
+                            fontSize: "20px",
+                            position: "relative",
+                            top: "-10px",
+                          }}
+                        >
+                          /03 {/** количество слайдов */}
+                        </SliderTracker>
+                      </div>
+                      <PlayArrowIcon
+                        sx={{
+                          color: "#575757",
+                          fontSize: "40px",
+                          cursor: "pointer",
+                          rotate: "180deg",
+                        }}
+                      />
+                    </Box>
                   </Grid>
                 </Grid>
                 <Grid item xs={3}></Grid>
