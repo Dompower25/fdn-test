@@ -29,14 +29,6 @@ const ContentBox = styled("div")(
 `
 );
 
-const Trait = styled("div")(({ theme }) => ({
-  width: "40px",
-  height: "4px",
-  background: "#453939",
-  border: "1px solid #453939",
-  borderRadius: "2px",
-}));
-
 const ButtonTypeMore = styled("button")(({ theme }) => ({
   padding: "15px",
   color: "white",
@@ -87,6 +79,7 @@ const MainBlock = () => {
           contentText={
             "Still other clients have reserved for capital improvement projects and will work directly with our"
           }
+          button={true}
           bgColor={"yellow"}
           gridC={"2/4"}
           gridR={"2"}

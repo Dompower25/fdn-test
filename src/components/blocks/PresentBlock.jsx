@@ -10,6 +10,18 @@ const TraitItem = styled("div")(({ theme }) => ({
   borderRadius: "2px",
 }));
 
+const ButtonTypeMore = styled("button")(({ theme }) => ({
+  padding: "15px",
+  color: "white",
+  textTransform: "uppercase",
+  fontSize: "12px",
+  fontWeight: "600",
+  letterSpacing: "2px",
+  border: "none",
+  background: "#453939",
+  cursor: "pointer",
+}));
+
 const PresentBlock = ({
   mainLogoText,
   mainTextFontSize,
@@ -39,6 +51,7 @@ const PresentBlock = ({
         boxSizing: "border-box",
         padding: "25px",
         display: "flex",
+        flexDirection: "column",
         alignSelf: "flex-start",
         justifyContent: "space-evenly",
         height: "100%",
