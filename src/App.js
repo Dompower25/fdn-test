@@ -1,7 +1,9 @@
 import React from "react";
 import "./App.css";
 
-import { FooterBar, MainBlock, HeaderBar } from "./components";
+import HeaderBar from "./components/HeaderBar";
+import MainBlock from "./components/MainBlock";
+import FooterBar from "./components/FooterBar";
 
 function App() {
   return (

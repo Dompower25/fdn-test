@@ -16,10 +16,19 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import styled from "@emotion/styled";
 
+const GridBox = styled("div")(
+  ({ theme }) => `
+  --cell-size: 293px;
+  display: grid;
+  grid-template-columns: 1fr repeat(4, var(--cell-size)) 1fr;
+`
+);
+
 const MyToolbar = styled("div")(({ theme }) => ({
   position: "sticky",
   top: "10px",
   width: "100%",
+  zIndex: "1",
 }));
 
 const StyledBadge = styled(BadgeUnstyled)(
@@ -58,25 +67,20 @@ const StyledBadge = styled(BadgeUnstyled)(
 const HeaderBar = () => {
   return (
     <MyToolbar>
-      <Grid container spacing={0}>
-        <Grid item xs={2} />
-        <Grid item xs={7} sx={{ textAlign: "start" }}>
-          <DashboardOutlinedIcon fontSize="large" />
-        </Grid>
-        <Grid item xs={0}>
+      <GridBox>
+        <DashboardOutlinedIcon
+          sx={{ gridColumn: "2/5", gridRow: "1", fontSize: "70px" }}
+        />
+        <Box sx={{ gridColumn: "5/6", gridRow: "1", alignSelf: "center" }}>
           <IconButton>
             <FacebookIcon fontSize="small" sx={{ color: "white" }} />
           </IconButton>
-        </Grid>
-        <Grid item xs={0}>
+
           <IconButton>
             <TwitterIcon fontSize="small" sx={{ color: "white" }} />
           </IconButton>
-        </Grid>
-        <Grid item xs={0}>
+
           <StyledBadge badgeContent={99}>
-            {" "}
-            {/** количество добавленных товаров ед. - "шт" */}
             <IconButton>
               <LocalGroceryStoreRoundedIcon
                 fontSize="small"
@@ -84,14 +88,12 @@ const HeaderBar = () => {
               />
             </IconButton>
           </StyledBadge>
-        </Grid>
-        <Grid item xs={0}>
+
           <IconButton>
             <MenuIcon fontSize="small" sx={{ color: "white" }} />
           </IconButton>
-        </Grid>
-        <Grid item xs={2} />
-      </Grid>
+        </Box>
+      </GridBox>
     </MyToolbar>
   );
 };
