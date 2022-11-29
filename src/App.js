@@ -1,15 +1,13 @@
 import React from "react";
 import "./App.css";
 
-import MainBlock from "./components/MainBlock";
-import Content from "./components/Content";
-import FooterBar from "./components/FooterBar";
+import { FooterBar, MainBlock, HeaderBar } from "./components";
 
 function App() {
   return (
     <div className="App">
+      <HeaderBar />
       <MainBlock />
-      <Content />
       <FooterBar />
     </div>
   );

@@ -2,14 +2,19 @@ import { styled } from "@mui/material/styles";
 import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import HeaderBar from "./HeaderBar";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
-const GridBox = styled("div")(({ theme }) => ({
-  width: "100%",
-  minHeight: "879px",
-}));
+const GridBox = styled("div")(
+  ({ theme }) => `
+  --cell-size: 293px;
+  display: grid;
+  grid-template-columns: 1fr repeat(4, var(--cell-size)) 1fr;
+  grid-template-rows: repeat(--cell-size, auto);
+  grid-auto-rows: var(--cell-size);
+
+`
+);
 
 const Trait = styled("div")(({ theme }) => ({
   width: "40px",
@@ -39,8 +44,9 @@ const SliderTracker = styled("span")(({ theme }) => ({
 const MainBlock = () => {
   return (
     <Box sx={{ position: "relative", top: "-39px" }}>
-      <HeaderBar />
+
       
+
     </Box>
   );
 };
