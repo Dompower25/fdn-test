@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Button } from "@mui/material";
+import { Box, Button, CardActions } from "@mui/material";
 import React, { useState } from "react";
 
 const TraitItem = styled("div")(({ theme }) => ({
@@ -8,18 +8,7 @@ const TraitItem = styled("div")(({ theme }) => ({
   background: "#453939",
   border: "1px solid #453939",
   borderRadius: "2px",
-}));
-
-const ButtonTypeMore = styled("button")(({ theme }) => ({
-  padding: "15px",
-  color: "white",
-  textTransform: "uppercase",
-  fontSize: "12px",
-  fontWeight: "600",
-  letterSpacing: "2px",
-  border: "none",
-  background: "#453939",
-  cursor: "pointer",
+  margin: "5px 0",
 }));
 
 const PresentBlock = ({
@@ -35,9 +24,7 @@ const PresentBlock = ({
 }) => {
   const [headerText, setHeaderText] = useState(mainLogoText);
   const [fSHeaderText, setFSHeaderText] = useState(mainTextFontSize);
-  const [traitCreated, setTraitCraated] = useState(trait);
   const [bodyText, setBodyText] = useState(contentText);
-  const [buttonCreated, setButtonCreated] = useState(button);
   const [bText, setBText] = useState(buttonText);
   const [gC, setGC] = useState(gridC);
   const [gR, setGR] = useState(gridR);
@@ -52,44 +39,58 @@ const PresentBlock = ({
         padding: "25px",
         display: "flex",
         flexDirection: "column",
-        alignSelf: "flex-start",
-        justifyContent: "space-evenly",
-        height: "100%",
+        justifyContent: "space-between",
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
         <Box
           sx={{
             fontSize: `${fSHeaderText}`,
             fontWeight: "600",
             color: "#353736",
             textTransform: "uppercase",
+            marginBottom: "5px",
           }}
         >
           {headerText}
         </Box>
-        {traitCreated ? <TraitItem /> : ""}
+        {trait ? <TraitItem /> : ""}
         <Box
           sx={{
             fontSize: "14px",
+            fontWeight: "600",
+            letterSpacing: "1px",
             color: "#353736",
+            marginTop: "5px",
           }}
         >
           {bodyText}
         </Box>
       </Box>
-      {buttonCreated ? (
-        <Button
-          variant="contained"
+      {button ? (
+        <CardActions
           sx={{
-            backgroundColor: "#363636",
-            color: "white",
-            fontSize: "16px",
-            padding: "10px",
+            padding: "0",
           }}
         >
-          {bText}
-        </Button>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#363636",
+              color: "white",
+              fontSize: "16px",
+              padding: "10px 25px",
+            }}
+          >
+            {bText}
+          </Button>
+        </CardActions>
       ) : (
         ""
       )}
